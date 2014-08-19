@@ -3,7 +3,7 @@
 	<meta charset="utf-8">
 
 	<title>Giftr</title>
-	<meta name="viewport" content="width=device-width">
+	<!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
 	<link rel="stylesheet" href="build/css/main.css">
 	<script type="text/javascript" src="js/modernizr.js"></script>
 	<script type="text/javascript" src="js/jquery.min.js"></script>
@@ -42,7 +42,7 @@
 	<!-- ///////////////////////// Handlebars Templates ///////////////////////// -->
 	<!-- Login and sign up page -->
 	<script type="text/x-handlebars-template" id="login-signup">
-		<section class="small-6 small-centered column login-form">
+		<section class="small-12 small-centered medium-6 column login-form">
 			<h2>Login</h2>
 			<form>
 				<input type="text" id="login-username" placeholder="Username" />
@@ -55,7 +55,7 @@
 			<hr>
 		</section>
 
-		<section class="small-6 small-centered column signup-form">
+		<section class="small-12 small-centered medium-6 column signup-form">
 			<h2>Sign Up</h2>
 			<form>
 				<input type="text" id="signup-username" placeholder="Username" />
@@ -73,19 +73,25 @@
 	<script type="text/x-handlebars-template" id="gift-list">
 		
 		<header class="small-12 column gift-list-header">
-			<h3>Gifts</h3>
-			<ul class="inline-list right">
-				<li><a class="add-new-gift-btn" href="#">Add Gift</a></li>
-				<li>|</li>
-				<li><a class="share-list-btn" href="#">Share List</a></li>
-				<li>|</li>
-				<li>Hello, {{username}}. (<a id="settings" href="#">Settings</a> | <a id="logout" href="#">Logout</a>)</li>
-			</ul>
+			<div class="row">
+				<div class="small-12 medium-2 column">
+					<h3>Gifts</h3>
+				</div>
+				<div class="small-12 medium-10 column">
+					<ul class="inline-list">
+						<li><a class="add-new-gift-btn" href="#">Add Gift</a></li>
+						<li>|</li>
+						<li><a class="share-list-btn" href="#">Share List</a></li>
+						<li>|</li>
+						<li>Hello, {{username}}. (<a id="settings" href="#">Settings</a> | <a id="logout" href="#">Logout</a>)</li>
+					</ul>
+				</div>
+			</div>
 		</header>
 
 		<section class="small-12 column" id="gift-list"></section>
 		<!-- <a class="gift-form-modal" href="#" data-reveal-id="gift-form"></a> -->
-		<section class="small-6 end column" id="gift-form"></section>
+		<section class="small-12 medium-6 end column" id="gift-form"></section>
 		<!-- <section class="reveal-modal" id="gift-form" data-reveal></section> -->
 	</script>
 

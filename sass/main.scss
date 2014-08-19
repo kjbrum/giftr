@@ -58,13 +58,18 @@ textarea {
 }
 
 .gift-list-header {
-	height: 40px;
+	position: relative;
+	z-index: 1;
 	h3 {
 		float: left;
 		line-height: 40px;
 	}
 	ul {
 		line-height: 40px;
+		float: right;
+		@include bp(small) {
+			float: left;
+		}
 		li {
 			font-size: 12px;
 			> * {
