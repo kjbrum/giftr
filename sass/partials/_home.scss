@@ -1,0 +1,15 @@
+.orbit-container {
+	* {
+		@include transition(0);
+	}
+	.home-orbit {
+		height: 500px !important;
+		li {
+			height: 500px !important;
+			@include background-size(cover !important);
+		}
+	}
+	.orbit-timer {
+		display: none;
+	}
+}

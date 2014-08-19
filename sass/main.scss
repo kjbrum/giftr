@@ -1,0 +1,80 @@
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+* Utilities
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */ 
+@import "partials/fonts";
+@import "partials/mixins";
+@import "partials/colors";
+
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+* Foundation
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */ 
+@import "foundation/settings";
+@import "normalize";
+@import "foundation";
+
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+* Global
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+
+html,
+body {
+	font-family: Helvetica, Arial, sans-serif;
+}
+
+html,
+html a {
+  -webkit-font-smoothing: antialiased;
+  text-shadow: 1px 1px 1px rgba(0,0,0,0.004);
+}
+
+hr {
+	border: 1px solid black;
+	border-width: 1px 0 0 0;
+}
+
+textarea {
+	resize: none;
+	height: 100px;
+}
+#masthead {
+	margin-bottom: 50px;
+}
+
+.error,
+.delete-prompt {
+	display: none;
+	padding: 5px;
+	font-size: 12px;
+	border: 1px solid red;
+	background: lighten(red, 30%);
+	color: white;
+}
+
+.delete-prompt {
+	display: inline-block;
+	a {
+		color: white;
+	}
+}
+
+.gift-list-header {
+	height: 40px;
+	h3 {
+		float: left;
+		line-height: 40px;
+	}
+	ul {
+		line-height: 40px;
+		li {
+			font-size: 12px;
+			> * {
+				display: inline;
+			}
+		}
+	}
+}
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+* Partials
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */ 
+@import "partials/header";
+@import "partials/footer";

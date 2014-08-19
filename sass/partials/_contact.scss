@@ -1,0 +1,68 @@
+.contact-us {
+	form {
+		input,
+		select,
+		textarea {
+			&[aria-invalid="true"] {
+				border: 1px solid red;
+				color: red;
+				@include placeholder-color(rgba(red, 0.4));
+			}
+		}
+		.form-first-name,
+		.form-email,
+		.form-last-name,
+		.form-phone {
+			@include grid-column(6);
+			padding: 0;
+			input {
+				margin-bottom: 0;
+			}
+			@include bp(small) {
+				@include grid-column(12);
+				padding: 0;
+			}
+		}
+		.form-first-name,
+		.form-email {
+			padding-right: rem-calc(5);
+			@include bp(small) {
+				padding: 0;
+			}
+		}
+		.form-message {
+			@include grid-column(12);
+			padding: 0;
+			textarea {
+				height: 150px;
+				resize: none;
+			}
+		}
+		.form-submit {
+			@include grid-column(12);
+			text-align: right;
+			padding: 0;
+			input {
+				background: $blue;
+				color: $white;
+				border: none;
+				font-weight: 900;
+				font-style: italic;
+				text-transform: uppercase;
+				padding: rem-calc(10) rem-calc(15);
+				&:hover {
+					background: mix($white, $blue, 20%);
+				}
+			}
+			img {
+				display: none;
+			}
+		}
+		.wpcf7-not-valid-tip {
+			display: none;
+		}
+		.wpcf7-response-output {
+			clear: both;
+		}
+	}
+}

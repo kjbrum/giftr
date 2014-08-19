@@ -1,0 +1,153 @@
+<!doctype html>
+<head>
+	<meta charset="utf-8">
+
+	<title>Giftr</title>
+	<meta name="viewport" content="width=device-width">
+	<link rel="stylesheet" href="build/css/main.css">
+	<script type="text/javascript" src="js/modernizr.js"></script>
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+</head>
+
+<body>
+
+	<header id="masthead" role="navigation">
+		<nav class="top-bar" data-topbar>
+			<ul class="title-area">
+				<li class="name">
+					<h1><a href="#">Giftr</a></h1>
+				</li>
+			</ul>
+
+			<section class="top-bar-section">
+				<ul class="right">
+					<li class="active"><a href="#">About</a></li>
+<!-- 					<li class="has-dropdown">
+						<a href="#">Actions</a>
+						<ul class="dropdown">
+							<li><a href="#">Add Gift</a></li>
+							<li><a href="#">Remove Gifts</a></li>
+							<li><a href="#">Share Gifts</a></li>
+						</ul>
+					</li> -->
+					<li><a href="#">Blog</a></li>
+					<li><a href="#">Contact</a></li>
+				</ul>
+			</section>
+		</nav>
+	</header><!-- #masthead -->
+
+	<div class="row" id="main-content"></div>
+
+	<!-- ///////////////////////// Handlebars Templates ///////////////////////// -->
+	<!-- Login and sign up page -->
+	<script type="text/x-handlebars-template" id="login-signup">
+		<section class="small-6 small-centered column login-form">
+			<h2>Login</h2>
+			<form>
+				<input type="text" id="login-username" placeholder="Username" />
+				<input type="password" id="login-password" placeholder="Password" />
+				<div class="login-error error"></div>
+				<div class="actions">
+					<input class="btn" id="login-btn" type="submit" value="Login">
+				</div>
+			</form>
+			<hr>
+		</section>
+
+		<section class="small-6 small-centered column signup-form">
+			<h2>Sign Up</h2>
+			<form>
+				<input type="text" id="signup-username" placeholder="Username" />
+				<input type="password" id="signup-password" placeholder="Password" />
+				<input type="text" id="signup-email" placeholder="Email" />
+				<div class="signup-error error"></div>
+				<div class="actions">
+					<input class="btn" id="signup-btn" type="submit" value="Sign Up">
+				</div>
+			</form>
+		</section>
+	</script>
+
+	<!-- Gift List -->
+	<script type="text/x-handlebars-template" id="gift-list">
+		
+		<header class="small-12 column gift-list-header">
+			<h3>Gifts</h3>
+			<ul class="inline-list right">
+				<li><a class="add-new-gift-btn" href="#">Add Gift</a></li>
+				<li>|</li>
+				<li><a class="share-list-btn" href="#">Share List</a></li>
+				<li>|</li>
+				<li>Hello, {{username}}. (<a id="settings" href="#">Settings</a> | <a id="logout" href="#">Logout</a>)</li>
+			</ul>
+		</header>
+
+		<section class="small-12 column" id="gift-list"></section>
+		<!-- <a class="gift-form-modal" href="#" data-reveal-id="gift-form"></a> -->
+		<section class="small-6 end column" id="gift-form"></section>
+		<!-- <section class="reveal-modal" id="gift-form" data-reveal></section> -->
+	</script>
+
+	<!-- Single Gift -->
+	<script type="text/x-handlebars-template" id="single-gift">
+		<hr>
+		<article class="row single-gift">
+			<div class="small-12 column"
+				<p><strong>Name:</strong> <a href="{{giftLink}}" target="_blank">{{giftName}}</a><br>
+				<strong>Price:</strong> {{giftPrice}}<br>
+				<strong>Store:</strong> {{giftStore}}<br>
+				<strong>Quantity:</strong> {{giftQuantity}}<br>
+				<strong>Description:</strong> {{giftDescription}}</p>
+				<div class="actions">
+					<a class="btn delete-prompt-btn" href="#" data-id="{{objectId}}">Delete</a> | 
+					<a class="btn edit-gift-btn" href="#" data-id="{{objectId}}">Edit</a>
+				</div>
+			</div>
+		</article>
+	</script>
+
+	<!-- Add Gift -->
+	<script type="text/x-handlebars-template" id="add-gift">
+		<form>
+			<input type="text" id="gift-name" placeholder="What is the gift?*" />
+			<input type="text" id="gift-price" placeholder="How much does it cost?*" />
+			<input type="text" id="gift-store" placeholder="Where can this item be found?*" />
+			<input type="text" id="gift-quantity" placeholder="How many do you want?*" />
+			<input type="text" id="gift-link" placeholder="Is there a link to the product?" />
+			<textarea id="gift-description" placeholder="Anything else we should know about it?"></textarea>
+			<div class="error"></div>
+			<div class="actions">
+				<a class="btn" id="add-gift-btn" href="#">Submit</a> | 
+				<a class="btn cancel-change" href="#">Cancel</a>
+			</div>
+		</form>
+	</script>
+
+	<!-- Edit Gift -->
+	<script type="text/x-handlebars-template" id="edit-gift">
+		<form>
+			<input type="text" id="gift-name" value="{{giftName}}"placeholder="What is the gift?*" />
+			<input type="text" id="gift-price" value="{{giftPrice}}"placeholder="How much does it cost?*" />
+			<input type="text" id="gift-store" value="{{giftStore}}"placeholder="Where can this item be found?*" />
+			<input type="text" id="gift-quantity" value="{{giftQuantity}}"placeholder="How many do you want?*" />
+			<input type="text" id="gift-link" value="{{giftLink}}"placeholder="Is there a link to the product?" />
+			<textarea id="gift-description" placeholder="Anything else we should know about it?">{{giftDescription}}</textarea>
+			<div class="error"></div>
+			<div class="actions">
+				<a class="btn" id="update-gift-btn" href="#" data-id="{{objectId}}">Update</a> | 
+				<a class="btn cancel-change" href="#">Cancel</a>
+			</div>
+		</form>
+	</script>
+
+	<!-- //////////////////////////////////////////////////////////////////////// -->
+	
+	<script type="text/javascript" src="js/handlebars.js"></script>
+	<script type="text/javascript" src="js/foundation.min.js"></script>
+	<script type="text/javascript" src="http://www.parsecdn.com/js/parse-1.1.15.min.js"></script>
+
+	<script type="text/javascript" src="js/main.js"></script>
+</body>
+
+</html>
