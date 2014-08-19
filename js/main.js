@@ -1,5 +1,7 @@
 $(document).ready(function() {
 
+	// perfBar.init();
+
 	// Initialize Foundation JS
 	$(document).foundation();
 
