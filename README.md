@@ -9,4 +9,3 @@ Practicing using the Parse API to create an app that allows you to login and cre
 + Shared lists (Useful for registries or just to collaborate on a list)
 + Additional options (color, size, etc...)
 + Yearly verification for each event, to make sure it is up to date
-+ Other Stuff Here Again
